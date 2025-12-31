@@ -1,0 +1,32 @@
+Wed Dec 31 12:00:15 PM +08 2025
+ 12:00:15 up  1:26,  1 user,  load average: 0.02, 0.04, 0.00
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.1Gi       1.3Gi        36Mi       1.7Gi       2.7Gi
+Swap:          3.8Gi          0B       3.8Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        25G   11G   13G  47% /
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mahmoud     2175  0.8 10.1 4010868 408504 ?      Ssl  10:34   0:43 /usr/bin/gnome-shell
+mahmoud     3014  0.1  1.3 697128 54768 ?        Ssl  10:35   0:06 /usr/libexec/gnome-terminal-server
+root        1183  0.0  0.0 355648  2748 ?        Sl   10:34   0:04 /usr/bin/VBoxDRMClient
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mahmoud     2175  0.8 10.1 4010868 408504 ?      Ssl  10:34   0:43 /usr/bin/gnome-shell
+mahmoud     2882  0.0  2.4 1103648 98112 ?       Sl   10:34   0:00 /usr/libexec/mutter-x11-frames
+mahmoud     2709  0.0  2.0 626512 80296 ?        Ssl  10:34   0:00 /usr/libexec/gsd-xsettings
+----------------
+Wed Dec 31 12:00:37 PM +08 2025
+ 12:00:37 up  1:26,  1 user,  load average: 0.01, 0.04, 0.00
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.1Gi       1.2Gi        36Mi       1.7Gi       2.7Gi
+Swap:          3.8Gi          0B       3.8Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        25G   11G   13G  47% /
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mahmoud     2175  0.8 10.0 4009412 401076 ?      Ssl  10:34   0:44 /usr/bin/gnome-shell
+mahmoud     3014  0.1  1.5 702940 60428 ?        Ssl  10:35   0:06 /usr/libexec/gnome-terminal-server
+root        1183  0.0  0.0 355648  2748 ?        Sl   10:34   0:04 /usr/bin/VBoxDRMClient
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mahmoud     2175  0.8 10.0 4009412 401076 ?      Ssl  10:34   0:44 /usr/bin/gnome-shell
+mahmoud     2882  0.0  2.4 1103648 98112 ?       Sl   10:34   0:00 /usr/libexec/mutter-x11-frames
+mahmoud     2709  0.0  2.0 626512 80296 ?        Ssl  10:34   0:00 /usr/libexec/gsd-xsettings
+----------------

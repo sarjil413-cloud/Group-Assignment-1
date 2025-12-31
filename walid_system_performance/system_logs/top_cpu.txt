@@ -1,0 +1,4 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mahmoud     2175  0.8 10.3 4022380 413848 ?      Ssl  10:34   0:40 /usr/bin/gnome-shell
+mahmoud     3014  0.1  1.5 702740 60380 ?        Ssl  10:35   0:05 /usr/libexec/gnome-terminal-server
+root       14629  0.0  0.0      0     0 ?        I    11:52   0:00 [kworker/u9:4-events_power_efficient]
