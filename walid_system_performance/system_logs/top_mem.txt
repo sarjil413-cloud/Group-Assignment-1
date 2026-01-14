@@ -1,4 +1,0 @@
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-mahmoud     2175  0.8 10.3 4022380 413848 ?      Ssl  10:34   0:40 /usr/bin/gnome-shell
-mahmoud     2882  0.0  2.4 1103392 98108 ?       Sl   10:34   0:00 /usr/libexec/mutter-x11-frames
-mahmoud     2709  0.0  2.0 626512 80276 ?        Ssl  10:34   0:00 /usr/libexec/gsd-xsettings
