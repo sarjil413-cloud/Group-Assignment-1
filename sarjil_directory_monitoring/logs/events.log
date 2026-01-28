@@ -1,0 +1,20 @@
+Monitoring started on monitored_dir...
+CREATED: monitored_dir/test1.txt
+  Size: 3 bytes
+  Owner: sarjil, Group: sarjil
+  Permissions: 664
+  Last Modified: Wed Jan 28 11:48:24 2026
+  Created: Wed Jan 28 11:48:24 2026
+MODIFIED: monitored_dir/test1.txt
+  Size: 3 bytes
+  Owner: sarjil, Group: sarjil
+  Permissions: 664
+  Last Modified: Wed Jan 28 11:48:24 2026
+  Created: Wed Jan 28 11:48:24 2026
+MODIFIED: monitored_dir/test1.txt
+  Size: 12 bytes
+  Owner: sarjil, Group: sarjil
+  Permissions: 664
+  Last Modified: Wed Jan 28 11:48:32 2026
+  Created: Wed Jan 28 11:48:32 2026
+DELETED: monitored_dir/test1.txt at Wed Jan 28 11:48:38 2026
