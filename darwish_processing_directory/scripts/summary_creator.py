@@ -1,14 +1,24 @@
-from collections import COunter
+from datetime import date, datetime
+from collections import Counter
 from pathlib import Path
 
+# SUMMARY FILE
+current_pwd = Path(__file__).resolve()
+
+# SUMMARY FILE PATHS
+summary_pwd = current_pwd.parent.parent / "summaries"
+
+# EVENT FILE PATHS
 monitor_log_name = 'events.log'
-monitor_pwd = Path(__file__).resolve().parent.parent.parent / "sarjil_directory_monitoring/logs"
+monitor_pwd = current_pwd.parent.parent.parent / "sarjil_directory_monitoring/logs"
 events_log_file = monitor_pwd / monitor_log_name
 
 total_events = []
 created_bytes = 0
 
-with open(events_log_file, "r" as f:
+# GET EVENTS
+
+with open(events_log_file, "r") as f:
 	for line in f: # Iterate through the log
 
 		# Check if each line starts an event
@@ -32,3 +42,17 @@ with open(events_log_file, "r" as f:
 event_counter = Counter(total_events)
 print(event_counter)
 print(created_bytes)
+
+# CREATE THE SUMMARY
+
+current_date = date.today()
+current_timelog = datetime.now()
+summary_file_name = "summary" + str(current_date) + ".txt"
+with open(summary_pwd / summary_file_name, "w") as f:
+	
+	log = str(current_timelog) + "\n" + "=" * 25 # Get the current time
+	log += f"\n\nDirectory Monitoring:\n\nFiles created: {event_counter['CREATED']} ({created_bytes} bytes created)"
+	log += f"\nFiles modified: {event_counter['MODIFIED']}"
+	log += f"\nFiles deleted: {event_counter['DELETED']}"
+
+	f.write(log)
