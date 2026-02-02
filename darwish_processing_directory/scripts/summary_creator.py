@@ -108,7 +108,7 @@ with open(summary_pwd / summary_file_name, "w") as f:
 
 	# SYSTEM REPORTING
 	log += f"\n\nSystem Reports:\nSnapshots: {records}"
-	log += f"\n\nAvg. Load(1 min): {average_load}\nLast Avg. Load(1 min): {load_averages[-1]}"
+	log += f"\n\nAvg. Load(1 min): {average_load:.2f}\nLast Avg. Load(1 min): {load_averages[-1]}"
 
 	f.write(log)
 
