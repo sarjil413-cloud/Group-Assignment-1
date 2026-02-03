@@ -84,7 +84,7 @@ with open(system_report_file, "r") as f:
 		if line.startswith(r"/dev/"):
 			disk_stats = line.split()
 			disk_size = int(disk_stats[1].replace("G",""))
-			disk_percentage = int(disk_stats[4].replace("%", ""))
+			disk_percentage = float(disk_stats[4].replace("%", ""))
 			disk_perc_use.append(disk_percentage)
 
 # SYSTEM REPORT STATS

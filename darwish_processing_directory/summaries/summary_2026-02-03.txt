@@ -1,4 +1,4 @@
-2026-02-03 17:20:12.906029
+2026-02-03 18:14:06.216160
 =========================
 
 Directory Monitoring:
@@ -8,15 +8,15 @@ Files modified: 2
 Files deleted: 1
 
 System Reports:
-Snapshots: 2
+Snapshots: 6
 
-Avg. Load(1 min): 0.11
-Current Avg. Load(1 min): 0.13
+Avg. Load(1 min): 0.04
+Current Avg. Load(1 min): 0.15
 
-Total Memory: 3.8Gi
-Current Memory Used: 1.1Gi
-Average Memory Usage: 57.89%
+Total Memory: 3.0Gi
+Current Memory Used: 1.0Gi
+Average Memory Usage: 200.00%
 
-Disk Size: 25
-Current Disk Used (Percentage): 48%
-Average Disk Used (Percentage): 48.0%
+Disk Size: 24
+Current Disk Used (Percentage): 50.6%
+Average Disk Used (Percentage): 50.6%
