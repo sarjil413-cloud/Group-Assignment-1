@@ -1,3 +1,4 @@
+# Commit 2: Added header comment for clarity
 import time
 import os
 from watchdog.observers import Observer
