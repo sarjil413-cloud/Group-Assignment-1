@@ -1,6 +1,8 @@
 from datetime import date, datetime
 from collections import Counter
 from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
 
 # FILE
 current_pwd = Path(__file__).resolve()
@@ -48,8 +50,6 @@ with open(events_log_file, "r") as f:
 					created_bytes += byte_size
 
 event_counter = Counter(total_events)
-print(event_counter)
-print(created_bytes)
 
 # GET THE SYSTEM REPORT
 
@@ -62,7 +62,7 @@ disk_perc_use = []
 
 with open(system_report_file, "r") as f:
 	for line in f:
-		if line == '-'*16: # This shows a new record
+		if line.startswith("--------"): # This shows a new record
 			records += 1
 		
 		# LOAD AVERAGE
@@ -107,9 +107,57 @@ with open(summary_pwd / summary_file_name, "w") as f:
 	log += f"\nFiles deleted: {event_counter['DELETED']}"
 
 	# SYSTEM REPORTING
+	#-- AVERAGE LOAD REPORT
 	log += f"\n\nSystem Reports:\nSnapshots: {records}"
-	log += f"\n\nAvg. Load(1 min): {average_load:.2f}\nLast Avg. Load(1 min): {load_averages[-1]}"
+	log += f"\n\nAvg. Load(1 min): {average_load:.2f}\nCurrent Avg. Load(1 min): {load_averages[-1]}"
+	#-- MEMORY REPORT
+	log += f"\n\nTotal Memory: {mem_total[-1]}Gi\nCurrent Memory Used: {mem_used[-1]}Gi\nAverage Memory Usage: {average_mem_used:.2f}%"
+	#-- DISK REPORT
+	log += f"\n\nDisk Size: {disk_size}\nCurrent Disk Used (Percentage): {disk_perc_use[-1]}%\nAverage Disk Used (Percentage): {average_disk_used}%"
 
 	f.write(log)
 
+
 print("Summary successfully created")
+
+# VISUAL SUMMARY TIME
+
+# CREATING BAR CHART
+
+categories = np.array(["Created", "Modified", "Deleted"])
+values = np.array([event_counter['CREATED'], event_counter['MODIFIED'], event_counter['DELETED']])
+colors = ["green", "blue", "red"]
+
+plt.bar(categories, values, color=colors)
+plt.xlabel("Events")
+plt.ylabel("Occurences")
+plt.title("Record of events for Directory Monitoring")
+
+plt.savefig(summary_pwd / "events_barchart.png")
+
+# CREATING PIE CHART OF MEMORY USAGE AND DISK USAGE
+
+pie_cat_1 = np.array(["Available Memory", "Memory Used"])
+pie_val_1 = np.array([mem_total[-1] - mem_used[-1], mem_total[-1]])
+
+disk_usage = disk_size*(average_disk_used/100)
+pie_cat_2 = np.array(["Available disk", "Disk Used"])
+pie_val_2 = np.array([disk_size - disk_usage, disk_usage])
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10,5))
+
+#-- MEMORY
+ax1.pie(pie_val_1, labels=pie_cat_1, autopct="%1.1f%%", startangle=90)
+ax1.set_title('MEMORY DISTRIBUTION')
+
+#-- DISK
+ax2.pie(pie_val_2, labels=pie_cat_2, autopct="%1.1f%%", startangle=90)
+ax2.set_title('DISK DISTRIBUTION')
+
+ax1.axis('equal')
+ax2.axis('equal')
+
+plt.tight_layout()
+
+
+plt.savefig(summary_pwd / "system_distribution.png")
