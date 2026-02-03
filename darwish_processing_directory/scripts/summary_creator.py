@@ -118,24 +118,30 @@ with open(summary_pwd / summary_file_name, "w") as f:
 	f.write(log)
 
 
-print("Summary successfully created")
+print("Summary successfully created") # PING USER THAT SUMMARY IS DONE!
 
-# VISUAL SUMMARY TIME
+################# VISUAL SUMMARY TIME
 
 # CREATING BAR CHART
 
-categories = np.array(["Created", "Modified", "Deleted"])
-values = np.array([event_counter['CREATED'], event_counter['MODIFIED'], event_counter['DELETED']])
+bar_categories = np.array(["Created", "Modified", "Deleted"])
+bar_values = np.array([event_counter['CREATED'], event_counter['MODIFIED'], event_counter['DELETED']])
 colors = ["green", "blue", "red"]
 
-plt.bar(categories, values, color=colors)
+plt.bar(bar_categories, bar_values, color=colors)
 plt.xlabel("Events")
-plt.ylabel("Occurences")
-plt.title("Record of events for Directory Monitoring")
+plt.ylabel("Occurrances")
+plt.title("RECORD OF EVENTS (DIR. MONITORING)")
 
 plt.savefig(summary_pwd / "events_barchart.png")
 
 # CREATING PIE CHART OF MEMORY USAGE AND DISK USAGE
+
+def CreatePieChart(ax, val, category, title):
+	ax.pie(val, labels=category, autopct="%1.1f%%", startangle=90)
+	ax.set_title(title)
+	ax.axis('equal')
+	return ax
 
 pie_cat_1 = np.array(["Available Memory", "Memory Used"])
 pie_val_1 = np.array([mem_total[-1] - mem_used[-1], mem_total[-1]])
@@ -147,17 +153,11 @@ pie_val_2 = np.array([disk_size - disk_usage, disk_usage])
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10,5))
 
 #-- MEMORY
-ax1.pie(pie_val_1, labels=pie_cat_1, autopct="%1.1f%%", startangle=90)
-ax1.set_title('MEMORY DISTRIBUTION')
+ax1 = CreatePieChart(ax1, pie_val_1, pie_cat_1, 'MEMORY DISTRIBUTION')
 
 #-- DISK
-ax2.pie(pie_val_2, labels=pie_cat_2, autopct="%1.1f%%", startangle=90)
-ax2.set_title('DISK DISTRIBUTION')
+ax2 = CreatePieChart(ax2, pie_val_2, pie_cat_2, 'DISK DISTRIBUTION')
 
-ax1.axis('equal')
-ax2.axis('equal')
-
+# SAVE PIE CHART
 plt.tight_layout()
-
-
 plt.savefig(summary_pwd / "system_distribution.png")
